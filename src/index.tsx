@@ -1,5 +1,6 @@
 import { NativeModules, Platform } from 'react-native';
-import type { GooglePayConfig } from './models';
+import { GooglePayConfig, GoogleToken, SDKCallMode, TapToken } from './models';
+
 export * from './models';
 const LINKING_ERROR =
   `The package 'tap-google-pay-rn' doesn't seem to be linked. Make sure: \n\n` +
@@ -18,11 +19,33 @@ const TapGooglePayRn = NativeModules.TapGooglePayRn
       }
     );
 
-export function startGooglePay(config: GooglePayConfig): Promise<string> {
-  return new Promise(async (resolve, reject) => {
+export function getGooglePayToken(config: GooglePayConfig) {
+  return new Promise<GoogleToken>(async (resolve, reject) => {
     try {
-      const result = await TapGooglePayRn.startGooglePay(config);
-      resolve(result);
+      const result = await TapGooglePayRn.startGooglePay({
+        ...config,
+        type: SDKCallMode.getGooglePayToken,
+      });
+      const res = result as { googlePayToken: string };
+      const googleToken = JSON.parse(res.googlePayToken) as GoogleToken;
+      resolve(googleToken);
+    } catch (e) {
+      let error = e as { message: string };
+      if (error.message) {
+        reject(error.message);
+      }
+    }
+  });
+}
+
+export function getTapToken(config: GooglePayConfig) {
+  return new Promise<TapToken>(async (resolve, reject) => {
+    try {
+      const result = await TapGooglePayRn.startGooglePay({
+        ...config,
+        type: SDKCallMode.getTapToken,
+      });
+      resolve(result as TapToken);
     } catch (e) {
       let error = e as { message: string };
       if (error.message) {

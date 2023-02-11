@@ -44,6 +44,7 @@ public class TapGoogleSDKDelegate implements SDKDelegate {
     WritableMap resultData = new WritableNativeMap();
     resultData.putString("googlePayToken", s);
     this.callback.onSuccess(resultData);
+    this.callback = null;
   }
 
   @Override
@@ -74,10 +75,12 @@ public class TapGoogleSDKDelegate implements SDKDelegate {
     resultData.putString("currency", token.getCurrency());
     resultData.putString("name", token.getName());
     this.callback.onSuccess(resultData);
+    this.callback = null;
   }
 
   public void start(Activity activity1, TapGooglePayRnModule callback, HashMap<String, Object> args) {
     this.callback = callback;
+    this.activity = activity1;
     try {
       String secretKey = (String) Objects.requireNonNull(args.get("secretKey"));
       String bundleID = (String) Objects.requireNonNull(args.get("bundleID"));
@@ -85,13 +88,15 @@ public class TapGoogleSDKDelegate implements SDKDelegate {
       String transactionCurrency = (String) Objects.requireNonNull(args.get("transactionCurrency"));
       List<String> allowedCardNetworks = (List<String>) Objects.requireNonNull(args.get("allowedCardNetworks"));
       String allowedCardAuthMethodsString = (String) Objects.requireNonNull(args.get("allowedCardAuthMethods"));
+      double typeDouble = (double) Objects.requireNonNull(args.get("type"));
       double environmentModeDouble = (double) Objects.requireNonNull(args.get("environmentMode"));
       String gatewayId = (String) Objects.requireNonNull(args.get("gatewayId"));
       String gatewayMerchantID = (String) Objects.requireNonNull(args.get("gatewayMerchantID"));
       double amount = (double) Objects.requireNonNull(args.get("amount"));
-      SDKMode environmentMode = getSdkMode((int) environmentModeDouble);
 
+      SDKMode environmentMode = getSdkMode((int) environmentModeDouble);
       AllowedMethods allowedCardAuthMethods = getAllowedMethods(allowedCardAuthMethodsString);
+
       DataConfiguration.INSTANCE.initSDK(activity1, secretKey, bundleID);
       DataConfiguration.INSTANCE.addSDKDelegate(this);
       DataConfiguration.INSTANCE.setCountryCode(countryCode);
@@ -102,10 +107,19 @@ public class TapGoogleSDKDelegate implements SDKDelegate {
       DataConfiguration.INSTANCE.setGatewayId(gatewayId); //**Required GATEWAY ID**/
       DataConfiguration.INSTANCE.setGatewayMerchantID(gatewayMerchantID); //**Required GATEWAY Merchant ID**/
       DataConfiguration.INSTANCE.setAmount(BigDecimal.valueOf(amount)); //**Required Amount**/
-      DataConfiguration.INSTANCE.getTapToken(activity1, googlePayButton);
-      
+
+      switch ((int) typeDouble) {
+          case 0:
+            DataConfiguration.INSTANCE.getGooglePayToken(activity1, googlePayButton);
+            break;
+          case 1:
+            DataConfiguration.INSTANCE.getTapToken(activity1, googlePayButton);
+            break;
+      }
+
     } catch (Exception e) {
       this.callback.onFailure("Missing params");
+      this.callback = null;
     }
 
   }
@@ -118,10 +132,13 @@ public class TapGoogleSDKDelegate implements SDKDelegate {
     switch (allowedCardAuthMethodsString) {
       case "ALL":
         allowedCardAuthMethods = AllowedMethods.ALL;
+        break;
       case "CRYPTOGRAM_3DS":
         allowedCardAuthMethods = AllowedMethods.CRYPTOGRAM_3DS;
+        break;
       case "PAN_ONLY":
         allowedCardAuthMethods = AllowedMethods.PAN_ONLY;
+        break;
     }
     return allowedCardAuthMethods;
   }
@@ -132,8 +149,10 @@ public class TapGoogleSDKDelegate implements SDKDelegate {
     switch (environmentModeDouble) {
       case 0:
         environmentMode = SDKMode.ENVIRONMENT_PRODUCTION;
+        break;
       case 1:
         environmentMode = SDKMode.ENVIRONMENT_TEST;
+        break;
     }
     return environmentMode;
   }

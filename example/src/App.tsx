@@ -6,18 +6,16 @@ import {
   AllowedCardNetworks,
   AllowedMethods,
   SdkMode,
-  startGooglePay,
+  getGooglePayToken,
   TapCurrencyCode,
 } from 'tap-google-pay-rn';
 
 export default function App() {
   const [result, setResult] = React.useState<string | undefined>();
 
-  React.useEffect(() => {}, []);
-
   const init = useCallback(async () => {
     try {
-      let res = await startGooglePay({
+      const config = {
         secretKey: 'sk_test_cvSHaplrPNkJO7dhoUxDYjqA',
         bundleID: 'company.tap.goSellSDKExamplee',
         countryCode: 'US',
@@ -28,8 +26,10 @@ export default function App() {
         gatewayId: 'tappayments',
         gatewayMerchantID: '1124340',
         amount: 23,
-      });
+      };
+      const res = await getGooglePayToken(config);
 
+      // let res = await getGooglePayToken(config);
       setResult(JSON.stringify(res));
     } catch (e) {
       setResult(e as string);
@@ -38,26 +38,21 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <View style={{ flex: 1, justifyContent: 'center' }}>
+      <View style={styles.resultContainer}>
         <Text>Result: {result}</Text>
       </View>
-      <TouchableOpacity
-        style={{
-          alignSelf: 'stretch',
-          height: 50,
-          backgroundColor: 'white',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-        onPress={init}
-      >
-        <Text style={{ color: 'black' }}>{'init'}</Text>
+      <TouchableOpacity style={styles.button} onPress={init}>
+        <Text style={styles.black}>{'init'}</Text>
       </TouchableOpacity>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  resultContainer: {
+    flex: 1,
+    justifyContent: 'center',
+  },
   container: {
     flex: 1,
     alignItems: 'center',
@@ -68,5 +63,13 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
     marginVertical: 20,
+  },
+  black: { color: 'black' },
+  button: {
+    alignSelf: 'stretch',
+    height: 50,
+    backgroundColor: 'white',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

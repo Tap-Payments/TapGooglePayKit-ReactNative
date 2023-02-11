@@ -20,3 +20,8 @@ export enum SdkMode {
   production,
   sandbox,
 }
+
+export enum SDKCallMode {
+  getGooglePayToken,
+  getTapToken,
+}

@@ -43,13 +43,15 @@ public class TapGooglePayRnModule extends ReactContextBaseJavaModule implements 
   }
 
 
-  // Example method
-  // See https://reactnative.dev/docs/native-modules-android
   @ReactMethod
   public void startGooglePay(ReadableMap readableMap, Promise promise) {
     Activity currentActivity = getCurrentActivity();
     HashMap<String, Object> args = readableMap.toHashMap();
     this.promise = promise;
+    if (currentActivity == null) {
+      this.promise.reject("no_activity");
+      return;
+    }
     delegate.start(currentActivity, this, args);
   }
 
@@ -67,7 +69,6 @@ public class TapGooglePayRnModule extends ReactContextBaseJavaModule implements 
    */
 
   private final TapGoogleSDKDelegate constructDelegate(final Activity setupActivity, ReactApplicationContext reactContext) {
-    System.out.println("setupActivity = " + setupActivity + "delegate>>>" + delegate);
     return new TapGoogleSDKDelegate(setupActivity,reactContext);
   }
 
