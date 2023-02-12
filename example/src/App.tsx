@@ -8,6 +8,7 @@ import {
   SdkMode,
   getGooglePayToken,
   TapCurrencyCode,
+  GoogleToken,
 } from 'tap-google-pay-rn';
 
 export default function App() {
@@ -27,9 +28,9 @@ export default function App() {
         gatewayMerchantID: '1124340',
         amount: 23,
       };
-      const res = await getGooglePayToken(config);
+      const res: GoogleToken = await getGooglePayToken(config);
 
-      // let res = await getGooglePayToken(config);
+      // let res: TapToken = await getTapToken(config);
       setResult(JSON.stringify(res));
     } catch (e) {
       setResult(e as string);
@@ -42,7 +43,7 @@ export default function App() {
         <Text>Result: {result}</Text>
       </View>
       <TouchableOpacity style={styles.button} onPress={init}>
-        <Text style={styles.black}>{'init'}</Text>
+        <Text style={styles.black}>{'Start'}</Text>
       </TouchableOpacity>
     </View>
   );
@@ -64,12 +65,14 @@ const styles = StyleSheet.create({
     height: 60,
     marginVertical: 20,
   },
-  black: { color: 'black' },
+  black: { color: 'white' },
   button: {
+    borderRadius: 20,
     alignSelf: 'stretch',
     height: 50,
-    backgroundColor: 'white',
+    backgroundColor: 'blue',
     justifyContent: 'center',
     alignItems: 'center',
+    margin: 20,
   },
 });

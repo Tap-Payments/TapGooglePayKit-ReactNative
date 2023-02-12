@@ -22,6 +22,9 @@ const TapGooglePayRn = NativeModules.TapGooglePayRn
 export function getGooglePayToken(config: GooglePayConfig) {
   return new Promise<GoogleToken>(async (resolve, reject) => {
     try {
+      if (Platform.OS === 'ios') {
+        reject('Not available for iOS');
+      }
       const result = await TapGooglePayRn.startGooglePay({
         ...config,
         type: SDKCallMode.getGooglePayToken,
@@ -41,6 +44,9 @@ export function getGooglePayToken(config: GooglePayConfig) {
 export function getTapToken(config: GooglePayConfig) {
   return new Promise<TapToken>(async (resolve, reject) => {
     try {
+      if (Platform.OS === 'ios') {
+        reject('Not available for iOS');
+      }
       const result = await TapGooglePayRn.startGooglePay({
         ...config,
         type: SDKCallMode.getTapToken,
