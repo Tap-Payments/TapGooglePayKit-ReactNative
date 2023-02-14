@@ -17,15 +17,15 @@ export default function App() {
   const init = useCallback(async () => {
     try {
       const config = {
-        secretKey: 'sk_test_cvSHaplrPNkJO7dhoUxDYjqA',
-        bundleID: 'company.tap.goSellSDKExamplee',
+        secretKey: 'sk_test_xxxxxxxxxxxxxxxxxxx',
+        bundleID: 'xxxx.xxxx.xxxxxxx',
         countryCode: 'US',
         transactionCurrency: TapCurrencyCode.USD,
         allowedCardNetworks: [AllowedCardNetworks.VISA],
         allowedCardAuthMethods: AllowedMethods.all,
         environmentMode: SdkMode.sandbox,
-        gatewayId: 'tappayments',
-        gatewayMerchantID: '1124340',
+        gatewayId: 'xxxxxxx',
+        gatewayMerchantID: 'xxxxxxx',
         amount: 23,
       };
       const res: GoogleToken = await getGooglePayToken(config);
