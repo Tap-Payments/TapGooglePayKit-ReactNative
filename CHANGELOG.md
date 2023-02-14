@@ -1,5 +1,12 @@
 # Changelog
 
+# 0.5.0 (2023-02-14)
+
+
+### Features
+
+* **Wrapper:** react native google pay button ([#1](https://github.com/Tap-Payments/TapGooglePayKit-ReactNative/issues/1)) ([7a8fb87](https://github.com/Tap-Payments/TapGooglePayKit-ReactNative/commit/7a8fb87ea8decf4d5460603278b9def5ccdaa312))
+
 # 0.4.0 (2023-02-14)
 
 
