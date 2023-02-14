@@ -1,10 +1,10 @@
-# tap-google-pay-rn (Only Android)
+# @tap-payments/google-pay-rn (Only Android)
 A standalone react native kit for handling Google Pay™
 
 ## Installation
 
 ```sh
-npm install tap-google-pay-rn
+npm install @tap-payments/google-pay-rn
 ```
 
 <a name="additional_config_googlepay"></a>
@@ -84,7 +84,7 @@ import {
   GoogleToken,
   getTapToken,
   TapToken,
-} from 'tap-google-pay-rn';
+} from '@tap-payments/google-pay-rn';
 
   try {
       const config = {

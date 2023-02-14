@@ -1,5 +1,5 @@
 {
-  "name": "tap-google-pay-rn",
+  "name": "@tap-payments/google-pay-rn",
   "version": "0.1.0",
   "description": "test",
   "main": "lib/commonjs/index",

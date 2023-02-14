@@ -3,7 +3,7 @@ import { GooglePayConfig, GoogleToken, SDKCallMode, TapToken } from './models';
 
 export * from './models';
 const LINKING_ERROR =
-  `The package 'tap-google-pay-rn' doesn't seem to be linked. Make sure: \n\n` +
+  `The package '@tap-payments/google-pay-rn' doesn't seem to be linked. Make sure: \n\n` +
   Platform.select({ ios: "- You have run 'pod install'\n", default: '' }) +
   '- You rebuilt the app after installing the package\n' +
   '- You are not using Expo Go\n';

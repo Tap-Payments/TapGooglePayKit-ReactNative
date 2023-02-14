@@ -53,9 +53,9 @@ Remember to add tests for your change if possible. Run the unit tests by:
 yarn test
 ```
 
-To edit the Objective-C or Swift files, open `example/ios/TapGooglePayRnExample.xcworkspace` in XCode and find the source files at `Pods > Development Pods > tap-google-pay-rn`.
+To edit the Objective-C or Swift files, open `example/ios/TapGooglePayRnExample.xcworkspace` in XCode and find the source files at `Pods > Development Pods > @tap-payments/google-pay-rn`.
 
-To edit the Java or Kotlin files, open `example/android` in Android studio and find the source files at `tap-google-pay-rn` under `Android`.
+To edit the Java or Kotlin files, open `example/android` in Android studio and find the source files at `@tap-payments/google-pay-rn` under `Android`.
 
 
 ### Commit message convention

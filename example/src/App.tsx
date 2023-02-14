@@ -9,7 +9,7 @@ import {
   getGooglePayToken,
   TapCurrencyCode,
   GoogleToken,
-} from 'tap-google-pay-rn';
+} from '@tap-payments/google-pay-rn';
 
 export default function App() {
   const [result, setResult] = React.useState<string | undefined>();
