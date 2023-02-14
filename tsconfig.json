@@ -1,9 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": "./",
-    "paths": {
-      "@tap-payments/google-pay-rn": ["./src/index"]
-    },
+    "paths": {},
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     "esModuleInterop": true,
