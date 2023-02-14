@@ -19,17 +19,18 @@ implementation "com.google.android.gms:play-services-wallet:18.1.3"
 
 2. Ensure your min sdk is 24
 ```kotlin
-minSdk 24
-targetSdk 32
+  minSdkVersion = 24
+  compileSdkVersion = 33
+  targetSdkVersion = 32
 ```
 
 3. In Manifest file , Inside the <application tag do the below:
 
 ```kotlin
-<meta-data
+  <meta-data
     android:name="com.google.android.gsm.wallet.api.enabled"
     android:value="true"
-    />
+  />
 ```
 
 ### Configure SDK Example
