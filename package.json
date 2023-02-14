@@ -1,6 +1,6 @@
 {
   "name": "@tap-payments/google-pay-rn",
-  "version": "0.5.0",
+  "version": "1.0.0",
   "description": "A standalone react native kit for handling Google Pay™",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
