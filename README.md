@@ -7,7 +7,6 @@ A standalone react native kit for handling Google Pay™
 npm install @tap-payments/google-pay-rn
 ```
 
-<a name="additional_config_googlepay"></a>
 # Additional Android Configuration
 To use GooglePay in your app , you will be required to do additional configuration as follows:
 
@@ -36,7 +35,7 @@ implementation "com.google.android.gms:play-services-wallet:18.1.3"
 ### Configure SDK Example
 
 ```ts
-export enum AllowedMethods {
+enum AllowedMethods {
   panOnly = 'PAN_ONLY',
   cryptogram3Ds = 'CRYPTOGRAM_3DS',
   all = 'ALL',
@@ -44,16 +43,18 @@ export enum AllowedMethods {
 ```
 
 ```ts
-export enum SdkMode {
+enum SdkMode {
   production,
   sandbox,
 }
 ```
 
 ```ts
-export enum SDKCallMode {
-  getGooglePayToken,
-  getTapToken,
+enum AllowedCardNetworks {
+  VISA = 'VISA',
+  AMEX = 'AMEX',
+  JCB = 'JCB',
+  MADA = 'MADA',
 }
 ```
 
