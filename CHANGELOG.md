@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/Tap-Payments/TapGooglePayKit-ReactNative/compare/v1.0.2...v1.0.3) (2023-02-15)
+
+
+### Bug Fixes
+
+* fix podspec file ([d8a4a39](https://github.com/Tap-Payments/TapGooglePayKit-ReactNative/commit/d8a4a395626eee363e952fbd3a2e34f597408030))
+
 ## [1.0.2](https://github.com/Tap-Payments/TapGooglePayKit-ReactNative/compare/v1.0.1...v1.0.2) (2023-02-14)
 
 ## [1.0.1](https://github.com/Tap-Payments/TapGooglePayKit-ReactNative/compare/v0.5.0...v1.0.1) (2023-02-14)

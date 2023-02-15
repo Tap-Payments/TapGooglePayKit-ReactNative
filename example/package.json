@@ -1,6 +1,6 @@
 {
   "name": "TapGooglePayRnExample",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
@@ -9,7 +9,7 @@
     "pods": "pod-install --quiet"
   },
   "dependencies": {
-    "@tap-payments/google-pay-rn": "1.0.0",
+    "@tap-payments/google-pay-rn": "1.0.3",
     "react": "18.2.0",
     "react-native": "0.71.2"
   },
