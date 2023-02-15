@@ -25,3 +25,14 @@ export enum SDKCallMode {
   getGooglePayToken,
   getTapToken,
 }
+
+export enum GooglePayButtonType {
+  buyWithGooglePay = 'BUY_WITH_GOOGLE_PAY',
+  donateWithGooglePay = 'DONATE_WITH_GOOGLE_PAY',
+  normalGooglePay = 'NORMAL_GOOGLE_PAY',
+  payWithGooglePay = 'PAY_WITH_GOOGLE_PAY',
+  subscribeWithGooglePay = 'SUBSCRIBE_WITH_GOOGLE_PAY',
+  checkoutWithGooglePay = 'CHECKOUT_WITH_GOOGLE_PAY',
+  orderWithGooglePay = 'ORDER_WITH_GOOGLE_PAY',
+  bookWithGooglePay = 'BOOK_WITH_GOOGLE_PAY',
+}
