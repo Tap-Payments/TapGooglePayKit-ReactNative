@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.5](https://github.com/Tap-Payments/TapGooglePayKit-ReactNative/compare/v1.0.4...v1.0.5) (2023-02-16)
+
+
+### Features
+
+* **Wrapper:** edit google button ([2778462](https://github.com/Tap-Payments/TapGooglePayKit-ReactNative/commit/27784626adc5b62744a7819c9477803aca569d91))
+
 ## [1.0.4](https://github.com/Tap-Payments/TapGooglePayKit-ReactNative/compare/v1.0.2...v1.0.4) (2023-02-15)
 
 
