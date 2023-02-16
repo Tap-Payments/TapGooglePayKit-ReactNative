@@ -1,4 +1,5 @@
 # @tap-payments/google-pay-rn (Only Android)
+
 A standalone react native kit for handling Google Pay™
 
 ## Installation
@@ -8,6 +9,7 @@ npm install @tap-payments/google-pay-rn
 ```
 
 # Additional Android Configuration
+
 To use GooglePay in your app , you will be required to do additional configuration as follows:
 
 1. In build.gradle file add
@@ -17,6 +19,7 @@ implementation "com.google.android.gms:play-services-wallet:18.1.3"
 ```
 
 2. Ensure your min sdk is 24
+
 ```kotlin
   minSdkVersion = 24
   compileSdkVersion = 33
@@ -84,7 +87,6 @@ GooglePayConfig = {
 }
 ```
 
-
 ## Usage
 
 ```ts
@@ -99,42 +101,42 @@ import {
   TapToken,
 } from '@tap-payments/google-pay-rn';
 
-  try {
+ const init = useCallback(async () => {
+    try {
       const config = {
-        secretKey: 'sk_test_xxxxxxxxxxxxxxxxxx',
-        bundleID: 'com.xxx.xxxxxxx',
+        secretKey: 'sk_test_xxxxxxxxxxxxxxxxxxx',
+        bundleID: 'xxxx.xxxx.xxxxxxx',
         countryCode: 'US',
         transactionCurrency: TapCurrencyCode.USD,
         allowedCardNetworks: [AllowedCardNetworks.VISA],
         allowedCardAuthMethods: AllowedMethods.all,
         environmentMode: SdkMode.sandbox,
-        gatewayId: 'xxxxx',
-        gatewayMerchantID: '122xxxxx',
+        gatewayId: 'xxxxxxx',
+        gatewayMerchantID: 'xxxxxxx',
         amount: 23,
       };
-      // get google Pay token
-      const result: GoogleToken = await getGooglePayToken(config);
+      const res: GoogleToken = await getGooglePayToken(config);
 
-      // get tap token
-      const result: TapToken = await getTapToken(config);
-
-      setResult(JSON.stringify(res));
-    } catch (e) {
-      setResult(e as string);
+      // let res: TapToken = await getTapToken(config);
+      console.log("🚀", JSON.stringify(res))
+    } catch (error) {
+      console.log("🚀", JSON.stringify(error))
     }
+  }, []);
+  
+```
 
-    return(
+```tsx
+return(
       <GooglePay
         style={styles.button}
         onPress={init}
-        type={GooglePayButtonType.bookWithGooglePay}
+        type={GooglePayButtonType.bookWithGooglePay} // GooglePayButtonType
       />
     )
-// ...
-
 ```
-### SDK Return types
 
+### SDK Return types
 
 ```ts
  type GoogleToken = {
