@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useCallback } from 'react';
 
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import {
   AllowedCardNetworks,
   AllowedMethods,
@@ -9,6 +9,8 @@ import {
   getGooglePayToken,
   TapCurrencyCode,
   GoogleToken,
+  GooglePay,
+  GooglePayButtonType,
 } from '@tap-payments/google-pay-rn';
 
 export default function App() {
@@ -42,9 +44,11 @@ export default function App() {
       <View style={styles.resultContainer}>
         <Text>Result: {result}</Text>
       </View>
-      <TouchableOpacity style={styles.button} onPress={init}>
-        <Text style={styles.black}>{'Start'}</Text>
-      </TouchableOpacity>
+      <GooglePay
+        style={styles.button}
+        onPress={init}
+        type={GooglePayButtonType.bookWithGooglePay}
+      />
     </View>
   );
 }
@@ -60,19 +64,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 20,
   },
-  box: {
-    width: 60,
-    height: 60,
-    marginVertical: 20,
-  },
-  black: { color: 'white' },
   button: {
-    borderRadius: 20,
     alignSelf: 'stretch',
     height: 50,
-    backgroundColor: 'blue',
     justifyContent: 'center',
     alignItems: 'center',
-    margin: 20,
   },
 });

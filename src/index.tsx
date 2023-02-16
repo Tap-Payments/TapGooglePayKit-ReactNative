@@ -3,6 +3,7 @@ import {
   NativeModules,
   Platform,
   requireNativeComponent,
+  StyleSheet,
   TouchableOpacity,
   UIManager,
   View,
@@ -30,7 +31,7 @@ type GooglePayButtonProps = {
 
 const ComponentName = 'GoogleButtonView';
 
-export const GooglePayButton =
+const GooglePayButton =
   UIManager.getViewManagerConfig(ComponentName) != null
     ? requireNativeComponent<GooglePayButtonProps>(ComponentName)
     : () => {
@@ -78,11 +79,15 @@ export function GooglePay({
   onPress: () => void;
   style: ViewStyle;
 }) {
+  if (Platform.OS === 'ios') {
+    return <View />;
+  }
+
   return (
-    <View>
+    <View style={[style]}>
       <GooglePayButton type={type} style={style} />
       <TouchableOpacity
-        style={[style, { position: 'absolute' }]}
+        style={[styles.touchableOpacityStyle]}
         onPress={onPress}
       />
     </View>
@@ -107,3 +112,14 @@ export function getTapToken(config: GooglePayConfig) {
     }
   });
 }
+
+const styles = StyleSheet.create({
+  touchableOpacityStyle: {
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'transparent',
+  },
+});
