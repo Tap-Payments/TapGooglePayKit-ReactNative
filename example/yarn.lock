@@ -1377,10 +1377,10 @@
   dependencies:
     "@sinonjs/commons" "^2.0.0"
 
-"@tap-payments/google-pay-rn@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@tap-payments/google-pay-rn/-/google-pay-rn-0.2.0.tgz#7fe8c24b43c7dbc57ab06c68d03d1cf7bbed5545"
-  integrity sha512-ZbAf6GmCpu4eooFsBLcKl625U6JeYYBn1jwHcUJNl+HtbAofzlg25UulAmwcJgst/C3K8AwAUUtLHYzNBAC/OA==
+"@tap-payments/google-pay-rn@1.0.5":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@tap-payments/google-pay-rn/-/google-pay-rn-1.0.5.tgz#fbc9914ccae5fa046e5f3b690dbb6b7be57c07ce"
+  integrity sha512-j6yIroWHp5fyTsA5GCGhU4WdBcaZ2xb/dq51czKp5YPXqyvMBnxmA/spgC3/TNjlcNPm1rND2Zj7cGzIsPNHPg==
 
 "@types/istanbul-lib-coverage@*", "@types/istanbul-lib-coverage@^2.0.0":
   version "2.0.4"

@@ -18,10 +18,10 @@ To use GooglePay in your app , you will be required to do additional configurati
 implementation "com.google.android.gms:play-services-wallet:18.1.3"
 ```
 
-2. Ensure your min sdk is 24
+2. Ensure your min sdk is 21
 
 ```kotlin
-  minSdkVersion = 24
+  minSdkVersion = 21
   compileSdkVersion = 33
   targetSdkVersion = 32
 ```

@@ -414,7 +414,7 @@ PODS:
     - React-logger (= 0.71.2)
     - React-perflogger (= 0.71.2)
   - SocketRocket (0.6.0)
-  - @tap-payments/google-pay-rn (0.1.0):
+  - tap-google-pay-rn (1.0.5):
     - React-Core
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
@@ -479,7 +479,7 @@ DEPENDENCIES:
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - React-runtimeexecutor (from `../node_modules/react-native/ReactCommon/runtimeexecutor`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
-  - @tap-payments/google-pay-rn (from `../..`)
+  - tap-google-pay-rn (from `../..`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -567,7 +567,7 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/runtimeexecutor"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
-  @tap-payments/google-pay-rn:
+  tap-google-pay-rn:
     :path: "../.."
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
@@ -620,7 +620,7 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: 4bf9a9086d27f74065fce1dddac274aa95216952
   ReactCommon: f697c0ac52e999aa818e43e2b6f277787c735e2d
   SocketRocket: fccef3f9c5cedea1353a9ef6ada904fde10d6608
-  @tap-payments/google-pay-rn: 960ff21124a5888c00f8b8f83bd8fe43ddb69d9e
+  tap-google-pay-rn: 7d2e0fe63bf5b00c2418d2c0e4ef7fffbaa25e6a
   Yoga: 5b0304b3dbef2b52e078052138e23a19c7dacaef
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
