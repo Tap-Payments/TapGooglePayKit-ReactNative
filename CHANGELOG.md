@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.8](https://github.com/Tap-Payments/TapGooglePayKit-ReactNative/compare/v1.0.7...v1.0.8) (2023-09-03)
+
+
+### Features
+
+* **Wrapper:** update Native lib ([54b87a0](https://github.com/Tap-Payments/TapGooglePayKit-ReactNative/commit/54b87a0894b0425406703309d1d3befc1d95ac54))
+
 ## [1.0.7](https://github.com/Tap-Payments/TapGooglePayKit-ReactNative/compare/v1.0.6...v1.0.7) (2023-08-22)
 
 
