@@ -9,7 +9,7 @@
     "pods": "pod-install --quiet"
   },
   "dependencies": {
-    "@tap-payments/google-pay-rn": "1.0.8",
+    "@tap-payments/google-pay-rn": "1.0.9",
     "react": "18.2.0",
     "react-native": "0.71.2"
   },
