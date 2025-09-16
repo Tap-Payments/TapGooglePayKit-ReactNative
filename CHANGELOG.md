@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.3](https://github.com/Tap-Payments/TapGooglePayKit-ReactNative/compare/v1.1.2...v1.1.3) (2025-09-16)
+
+
+### Features
+
+* **Wrapper:** update Native ios to support new arch ([a223b82](https://github.com/Tap-Payments/TapGooglePayKit-ReactNative/commit/a223b828b00bb11b0cb09f7958a9c5b2f7090c0d))
+
 ## [1.1.2](https://github.com/Tap-Payments/TapGooglePayKit-ReactNative/compare/v1.1.1...v1.1.2) (2025-08-20)
 
 
