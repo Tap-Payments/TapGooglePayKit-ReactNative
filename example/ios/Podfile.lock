@@ -414,7 +414,7 @@ PODS:
     - React-logger (= 0.71.2)
     - React-perflogger (= 0.71.2)
   - SocketRocket (0.6.0)
-  - tap-google-pay-rn (1.1.2):
+  - tap-google-pay-rn (1.1.3):
     - React-Core
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
@@ -620,7 +620,7 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: 4bf9a9086d27f74065fce1dddac274aa95216952
   ReactCommon: f697c0ac52e999aa818e43e2b6f277787c735e2d
   SocketRocket: fccef3f9c5cedea1353a9ef6ada904fde10d6608
-  tap-google-pay-rn: 38780204affc661264f9539e719fe388480164f6
+  tap-google-pay-rn: 6229083fa6c64fde731971c869124b40f4ef4bb8
   Yoga: 5b0304b3dbef2b52e078052138e23a19c7dacaef
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
