@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { useCallback } from 'react';
+import {useCallback} from 'react';
 
-import { StyleSheet, View, Text } from 'react-native';
+import {StyleSheet, View, Text} from 'react-native';
 import {
   AllowedCardNetworks,
   AllowedMethods,
