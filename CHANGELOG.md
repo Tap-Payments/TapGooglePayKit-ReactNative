@@ -1,5 +1,7 @@
 # Changelog
 
+## [1.1.6](https://github.com/Tap-Payments/TapGooglePayKit-ReactNative/compare/v1.1.4...v1.1.6) (2025-10-01)
+
 ## [1.1.4](https://github.com/Tap-Payments/TapGooglePayKit-ReactNative/compare/v1.1.3...v1.1.4) (2025-09-22)
 
 
