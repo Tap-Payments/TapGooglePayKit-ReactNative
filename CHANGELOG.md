@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.8](https://github.com/Tap-Payments/TapGooglePayKit-ReactNative/compare/v1.1.6...v1.1.8) (2026-05-06)
+
+
+### Features
+
+* update SDK and use public key ([631e6c3](https://github.com/Tap-Payments/TapGooglePayKit-ReactNative/commit/631e6c36826d233f27b5377743bcd740fa579126))
+* update usage from sk to pk ([561d17f](https://github.com/Tap-Payments/TapGooglePayKit-ReactNative/commit/561d17f905ecbe31d5f1ef761c66780bb0785703))
+
 ## [1.1.6](https://github.com/Tap-Payments/TapGooglePayKit-ReactNative/compare/v1.1.4...v1.1.6) (2025-10-01)
 
 ## [1.1.4](https://github.com/Tap-Payments/TapGooglePayKit-ReactNative/compare/v1.1.3...v1.1.4) (2025-09-22)
