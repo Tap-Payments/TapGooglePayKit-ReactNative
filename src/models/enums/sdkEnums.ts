@@ -3,6 +3,7 @@ export enum AllowedCardNetworks {
   AMEX = 'AMEX',
   JCB = 'JCB',
   MADA = 'MADA',
+  MASTERCARD = 'MASTERCARD',
 }
 
 export enum LocaleIdentifier {
@@ -35,4 +36,9 @@ export enum GooglePayButtonType {
   checkoutWithGooglePay = 'CHECKOUT_WITH_GOOGLE_PAY',
   orderWithGooglePay = 'ORDER_WITH_GOOGLE_PAY',
   bookWithGooglePay = 'BOOK_WITH_GOOGLE_PAY',
+}
+
+export enum GooglePayButtonTheme {
+  DARK = 'DARK',
+  LIGHT = 'LIGHT',
 }

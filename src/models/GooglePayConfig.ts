@@ -6,7 +6,7 @@ import type {
 } from './enums';
 
 export type GooglePayConfig = {
-  secretKey: string;
+  publicKey: string;
   bundleID: string;
   countryCode: string;
   transactionCurrency: TapCurrencyCode;

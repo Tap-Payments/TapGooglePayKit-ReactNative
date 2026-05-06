@@ -1,16 +1,17 @@
 import * as React from 'react';
 import {useCallback} from 'react';
 
-import {StyleSheet, View, Text} from 'react-native';
+import {StyleSheet, View, Text, ScrollView} from 'react-native';
 import {
-  AllowedCardNetworks,
   AllowedMethods,
   SdkMode,
   getGooglePayToken,
   TapCurrencyCode,
   GoogleToken,
-  GooglePay,
   GooglePayButtonType,
+  GooglePay,
+  GooglePayButtonTheme,
+  AllowedCardNetworks,
 } from '@tap-payments/google-pay-rn';
 
 export default function App() {
@@ -19,15 +20,21 @@ export default function App() {
   const init = useCallback(async () => {
     try {
       const config = {
-        secretKey: 'sk_test_xxxxxxxxxxxxxxxxxxx',
-        bundleID: 'xxxx.xxxx.xxxxxxx',
-        countryCode: 'US',
-        transactionCurrency: TapCurrencyCode.USD,
-        allowedCardNetworks: [AllowedCardNetworks.VISA],
+        publicKey: 'pk_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+        bundleID: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+        countryCode: 'AE',
+        transactionCurrency: TapCurrencyCode.AED,
+        allowedCardNetworks: [
+          AllowedCardNetworks.AMEX,
+          AllowedCardNetworks.VISA,
+          AllowedCardNetworks.JCB,
+          AllowedCardNetworks.MADA,
+          AllowedCardNetworks.MASTERCARD,
+        ],
         allowedCardAuthMethods: AllowedMethods.all,
         environmentMode: SdkMode.sandbox,
-        gatewayId: 'xxxxxxx',
-        gatewayMerchantID: 'xxxxxxx',
+        gatewayId: 'xxxxxxxxxxxx',
+        gatewayMerchantID: 'xxxxxxxxxxxxxx',
         amount: 23,
       };
       const res: GoogleToken = await getGooglePayToken(config);
@@ -38,35 +45,89 @@ export default function App() {
       setResult(e as string);
     }
   }, []);
-
   return (
-    <View style={styles.container}>
+    <ScrollView
+      contentContainerStyle={styles.container}
+      showsVerticalScrollIndicator={false}>
       <View style={styles.resultContainer}>
         <Text>Result: {result}</Text>
       </View>
+
       <GooglePay
         style={styles.button}
         onPress={init}
+        cornerRadius={50}
+        theme={GooglePayButtonTheme.DARK}
+        type={GooglePayButtonType.buyWithGooglePay}
+      />
+      <GooglePay
+        style={styles.button}
+        onPress={init}
+        cornerRadius={50}
+        theme={GooglePayButtonTheme.DARK}
+        type={GooglePayButtonType.donateWithGooglePay}
+      />
+      <GooglePay
+        style={styles.button}
+        onPress={init}
+        cornerRadius={50}
+        theme={GooglePayButtonTheme.DARK}
+        type={GooglePayButtonType.checkoutWithGooglePay}
+      />
+      <GooglePay
+        style={styles.button}
+        onPress={init}
+        cornerRadius={50}
+        theme={GooglePayButtonTheme.DARK}
+        type={GooglePayButtonType.orderWithGooglePay}
+      />
+      <GooglePay
+        style={styles.button}
+        onPress={init}
+        cornerRadius={50}
+        theme={GooglePayButtonTheme.DARK}
+        type={GooglePayButtonType.normalGooglePay}
+      />
+      <GooglePay
+        style={styles.button}
+        onPress={init}
+        cornerRadius={50}
+        theme={GooglePayButtonTheme.DARK}
+        type={GooglePayButtonType.payWithGooglePay}
+      />
+      <GooglePay
+        style={styles.button}
+        onPress={init}
+        cornerRadius={50}
+        theme={GooglePayButtonTheme.DARK}
         type={GooglePayButtonType.bookWithGooglePay}
       />
-    </View>
+      <GooglePay
+        style={styles.button}
+        onPress={init}
+        cornerRadius={50}
+        theme={GooglePayButtonTheme.DARK}
+        type={GooglePayButtonType.subscribeWithGooglePay}
+      />
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   resultContainer: {
-    flex: 1,
-    justifyContent: 'center',
+    paddingVertical: 12,
+    alignItems: 'center',
   },
   container: {
-    flex: 1,
+    flexGrow: 1,
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
+    gap: 12,
   },
   button: {
     alignSelf: 'stretch',
-    height: 50,
+    minHeight: 60,
     justifyContent: 'center',
     alignItems: 'center',
   },

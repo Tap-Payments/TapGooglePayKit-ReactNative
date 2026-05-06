@@ -2,14 +2,14 @@ import React from 'react';
 import {
   NativeModules,
   Platform,
+  Pressable,
   requireNativeComponent,
-  StyleSheet,
-  TouchableOpacity,
   UIManager,
   View,
   ViewStyle,
 } from 'react-native';
 import {
+  GooglePayButtonTheme,
   GooglePayButtonType,
   GooglePayConfig,
   GoogleToken,
@@ -26,6 +26,8 @@ const LINKING_ERROR =
 
 type GooglePayButtonProps = {
   type: GooglePayButtonType;
+  theme?: GooglePayButtonTheme;
+  cornerRadius?: number;
   style: ViewStyle;
 };
 
@@ -72,25 +74,32 @@ export function getGooglePayToken(config: GooglePayConfig) {
 }
 export function GooglePay({
   type,
+  theme,
+  cornerRadius,
   onPress,
   style,
 }: {
   type: GooglePayButtonType;
+  theme?: GooglePayButtonTheme;
+  cornerRadius?: number;
   onPress: () => void;
   style: ViewStyle;
 }) {
+  console.log('🚀 ~ GooglePay ~ type:', type);
+
   if (Platform.OS === 'ios') {
     return <View />;
   }
 
   return (
-    <View style={[style]}>
-      <GooglePayButton type={type} style={style} />
-      <TouchableOpacity
-        style={[styles.touchableOpacityStyle]}
-        onPress={onPress}
+    <Pressable style={style} onPress={onPress}>
+      <GooglePayButton
+        type={type}
+        theme={theme}
+        cornerRadius={cornerRadius}
+        style={style}
       />
-    </View>
+    </Pressable>
   );
 }
 export function getTapToken(config: GooglePayConfig) {
@@ -113,13 +122,3 @@ export function getTapToken(config: GooglePayConfig) {
   });
 }
 
-const styles = StyleSheet.create({
-  touchableOpacityStyle: {
-    position: 'absolute',
-    left: 0,
-    top: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: 'transparent',
-  },
-});

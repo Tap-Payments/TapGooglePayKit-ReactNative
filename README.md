@@ -1,5 +1,31 @@
 # @tap-payments/google-pay-rn (Only Android)
 
+## Migration Guide
+
+### Upgrading to v1.1.6+
+
+The `secretKey` field in `GooglePayConfig` has been **renamed to `publicKey`**.
+
+**Before (< v1.1.6):**
+
+```ts
+const config = {
+  secretKey: 'pk_test_xxxxxxxxxxxx', // old field name
+  // ...
+};
+```
+
+**After (>= v1.1.6):**
+
+```ts
+const config = {
+  publicKey: 'pk_test_xxxxxxxxxxxx', // renamed field
+  // ...
+};
+```
+
+> **Note:** Only the field name changes — the key value itself (your Tap public key) stays the same.
+
 A standalone react native kit for handling Google Pay™
 
 ## Installation
@@ -61,7 +87,7 @@ enum AllowedCardNetworks {
 
 ```ts
 GooglePayConfig = {
-  secretKey: string; // Tap secret key
+  publicKey: string; // Tap public key
   bundleID: string;  // App bundleID
   countryCode: string;  // countryCode
   transactionCurrency: TapCurrencyCode; // Enum TapCurrencyCode
@@ -95,6 +121,8 @@ import {
   getGooglePayToken,
   TapCurrencyCode,
   GoogleToken,
+  GooglePay,
+  GooglePayButtonType,
   getTapToken,
   TapToken,
 } from '@tap-payments/google-pay-rn';
@@ -102,7 +130,7 @@ import {
  const init = useCallback(async () => {
     try {
       const config = {
-        secretKey: 'sk_test_xxxxxxxxxxxxxxxxxxx',
+        publicKey: 'sk_test_xxxxxxxxxxxxxxxxxxx',
         bundleID: 'xxxx.xxxx.xxxxxxx',
         countryCode: 'US',
         transactionCurrency: TapCurrencyCode.USD,
@@ -124,14 +152,23 @@ import {
   
 ```
 
+Optional props customize the native Google Pay button appearance:
+
+| Prop | Type | Description |
+| --- | --- | --- |
+| `theme` | `'LIGHT'` \| `'DARK'` | Button color theme (`'DARK'` matches the Wallet button dark style). Defaults to `'LIGHT'` if omitted. |
+| `cornerRadius` | `number` | Corner radius in **density-independent pixels**. Example: `50` for a rounded pill shape. |
+
 ```tsx
-return(
+return (
       <GooglePay
         style={styles.button}
         onPress={init}
-        type={GooglePayButtonType.bookWithGooglePay} // GooglePayButtonType
+        cornerRadius={50}
+        theme="DARK"
+        type={GooglePayButtonType.bookWithGooglePay}
       />
-    )
+    );
 ```
 
 ### SDK Return types

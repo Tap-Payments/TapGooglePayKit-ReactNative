@@ -82,7 +82,7 @@ public class TapGoogleSDKDelegate implements SDKDelegate {
     this.callback = callback;
     this.activity = activity1;
     try {
-      String secretKey = (String) Objects.requireNonNull(args.get("secretKey"));
+      String publicKey = (String) Objects.requireNonNull(args.get("publicKey"));
       String bundleID = (String) Objects.requireNonNull(args.get("bundleID"));
       String countryCode = (String) Objects.requireNonNull(args.get("countryCode"));
       String transactionCurrency = (String) Objects.requireNonNull(args.get("transactionCurrency"));
@@ -97,7 +97,6 @@ public class TapGoogleSDKDelegate implements SDKDelegate {
       SDKMode environmentMode = getSdkMode((int) environmentModeDouble);
       AllowedMethods allowedCardAuthMethods = getAllowedMethods(allowedCardAuthMethodsString);
 
-      DataConfiguration.INSTANCE.initSDK(activity1, secretKey, bundleID);
       DataConfiguration.INSTANCE.addSDKDelegate(this);
       DataConfiguration.INSTANCE.setCountryCode(countryCode);
       DataConfiguration.INSTANCE.setTransactionCurrency(transactionCurrency);
@@ -107,6 +106,7 @@ public class TapGoogleSDKDelegate implements SDKDelegate {
       DataConfiguration.INSTANCE.setGatewayId(gatewayId); //**Required GATEWAY ID**/
       DataConfiguration.INSTANCE.setGatewayMerchantID(gatewayMerchantID); //**Required GATEWAY Merchant ID**/
       DataConfiguration.INSTANCE.setAmount(BigDecimal.valueOf(amount)); //**Required Amount**/
+      DataConfiguration.INSTANCE.initSDK(activity1, publicKey);
 
       switch ((int) typeDouble) {
           case 0:
