@@ -4,13 +4,13 @@
 
 ### Upgrading to v1.1.6+
 
-The `secretKey` field in `GooglePayConfig` has been **renamed to `publicKey`**.
+Both the field name **and** the key value have changed. Replace `secretKey` (which accepted a secret `sk_test_…` key) with `publicKey` (which accepts your public `pk_test_…` key).
 
 **Before (< v1.1.6):**
 
 ```ts
 const config = {
-  secretKey: 'pk_test_xxxxxxxxxxxx', // old field name
+  secretKey: 'sk_test_xxxxxxxxxxxx',
   // ...
 };
 ```
@@ -19,12 +19,12 @@ const config = {
 
 ```ts
 const config = {
-  publicKey: 'pk_test_xxxxxxxxxxxx', // renamed field
+  publicKey: 'pk_test_xxxxxxxxxxxx',
   // ...
 };
 ```
 
-> **Note:** Only the field name changes — the key value itself (your Tap public key) stays the same.
+> **Note:** Make sure to use your Tap **public** key (`pk_test_…`), not your secret key.
 
 A standalone react native kit for handling Google Pay™
 
